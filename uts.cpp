@@ -45,7 +45,7 @@ int asc_dsc() {
 	return mn;
 }
 
-void identisas () {
+void identitas () {
 	cout << "============================" << endl;
 	cout << "= Nama  : M.Rijal Arfani   =" << endl;
 	cout << "= Kelas : 2 A              =" << endl;
@@ -75,7 +75,7 @@ void tampil()
 int bublesortAcs () {
 	
 	system("cls");
-	identisas();
+	identitas();
 	cout << "Masukan Jumlah Data : "; cin >> n;
 	cout << "=================================" << endl;
 	for (int i = 0; i < n; i++)
@@ -114,48 +114,42 @@ int bublesortAcs () {
 }
 
 int bublesortDsc () {
-	int data[30];
-	int n,tmp,a,b;
-
 	system("cls");
-	identisas();
-	cout << "Masukan banyak data : "; cin >> n;
-
-	for (int i = 0; i < n; i++) {
-		cout << "Data Ke " << (1+i) << " : ";
-		cin >> data[i];
+	identitas();
+	cout << "Masukan Jumlah Data : "; cin >> n;
+	cout << "=================================" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Masukan Data Ke " << (1+i) << " = "; cin >> data[i];
+		data2[i] = data[i];
 	}
 
 	cout << "=================================" << endl;
 	cout << "=      Proses Buble Sort        =" << endl;
 	cout << "=================================" << endl;
 
-	// Sebelum di sorting
-	cout << "Data sebelum di sorting" << endl;
-	cout << "========================" << endl;
+	cout << "sebelum di sorting" << endl;
+	// tampil
+	tampil();
+	cout << "=========================" << endl;
 
-	for (int i = 0; i<n; i++) {
-		cout << data[i] << " ";
-	}
-
-	// Porses Buble sort DSC
+	// Proses Buble sort nya
 	for (int i = 1; i < n; i++) {
-		for (int j = n-1; j >=i; j++) {
-			if (data[j] > data[j]) {
-				tmp = data[b];
-				data[b] = data[a];
-				data[a] = tmp;
+		for (int j = n-1; j >= i; j--) {
+			if (data[j] > data[j-1]) {
+				tukar(j,j-1);
 			}
+
+			tampil();	
 		}
-		cout << "\n";
+
+		
+
+		cout<<endl;
 	}
 
-	cout << "Data sesudah di sorting" << endl;
-	cout << "-----------------------" << endl;
-
-	for (int i = 0; i<n; i++) {
-		cout << data[i] << " " << endl;
-	}
+	cout << "Setelah Di Sorting" << endl;
+	tampil();
 
 	cout << "\n";
 
@@ -167,7 +161,7 @@ int selectioSortAsc () {
 	int n,i,j,x,pos,tampung;
 
 	system("cls");
-	identisas();
+	identitas();
 	cout << "Masukan banyak Data : "; cin >> n;
 	cout << "=====================" << endl;
 
@@ -224,7 +218,7 @@ int selectioSortDsc () {
 	int n,i,j,x,pos,tampung;
 
 	system("cls");
-	identisas();
+	identitas();
 	cout << "Masukan banyak Data : "; cin >> n;
 	cout << "=====================" << endl;
 
