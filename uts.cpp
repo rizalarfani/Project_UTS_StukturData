@@ -282,7 +282,6 @@ int main()
 	int plh = asc_dsc();
 	char lg;
 
-
 	while(pilihan != 3) {
 		switch(pilihan) {
 		case 1:
@@ -334,7 +333,6 @@ int main()
 	}
 
 	
-
 	getch();
 	return false;
 }
