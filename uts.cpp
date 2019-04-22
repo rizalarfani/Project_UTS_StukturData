@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int data[10],data2[10];
+int data[50],data2[50];
 int n;
 
 int getOption () 
@@ -28,6 +28,12 @@ int getOption ()
 
 	cout << "Silahkan pilih menu (1/2) : "; cin >> menu;
 	cin.ignore(1,'\n');
+	if (menu == 3) {
+		cout<<"*=========================================*"<<endl;
+		cout<<"*                TERIMA KASIH             *"<<endl;
+		cout<<"*=========================================*"<<endl;
+		exit;
+	}
 	cout << "\n";
 
 	return menu;
@@ -35,11 +41,28 @@ int getOption ()
 
 int asc_dsc() {
 	int mn;
+	int cek;
 
 	system ("cls");
-	cout << "\n";
-	cout << "1.ASC (Terkecil ke besar)" << endl;
-	cout << "2.DSC (Terbesar ke kecil)" << endl;
+	if (cek == 1) {
+		cout << "=====================" << endl;
+		cout << "= Progam Buble Sort =" << endl;
+		cout << "=====================" << endl;
+		cout << "\n";
+		cout << "1.ASCENDING (Terkecil ke besar)" << endl;
+		cout << "2.DESCENDING (Terbesar ke kecil)" << endl;
+		cout << "\n";
+	} else if (cek == 2) {
+		cout << "=========================" << endl;
+		cout << "= Progam Selection Sort =" << endl;
+		cout << "=========================" << endl;
+		cout << "\n";
+		cout << "1.ASCENDING (Terkecil ke besar)" << endl;
+		cout << "2.DESCENDING (Terbesar ke kecil)" << endl;
+		cout << "\n";
+	} else {
+		cout << "Maaf yang anda pilih tidak ada" << endl;
+	}
 	cout << "\n";
 	cout << "Pilih mana (1/2) : "; cin >> mn;
 	return mn;
@@ -76,6 +99,8 @@ int bublesortAcs () {
 	
 	system("cls");
 	identitas();
+	cout << "Progam Buble Sort ASCENDING" << endl;
+	cout << "\n";
 	cout << "Masukan Jumlah Data : "; cin >> n;
 	cout << "=================================" << endl;
 	for (int i = 0; i < n; i++)
@@ -87,7 +112,7 @@ int bublesortAcs () {
 	cout << "=      Proses Buble Sort        =" << endl;
 	cout << "=================================" << endl;
 
-	cout << "sebelum di sortir" << endl;
+	cout << "sebelum di sorting" << endl;
 	// tampil
 	tampil();
 	cout << "=========================" << endl;
@@ -99,10 +124,14 @@ int bublesortAcs () {
 				tukar(j,j-1);	
 			}
 
-			tampil();	
-		}
+			cout << "Langkah ke " << (i+1) << "" << endl;
+			cout << "==============" << endl;
 
-		cout<<endl;
+			for (int x = 0; x < n; x++) {
+				cout << data[x] << " ";
+			}
+			cout << "\n";	
+		}
 	}
 
 	cout << "Setelah Di Sorting" << endl;
@@ -116,6 +145,7 @@ int bublesortAcs () {
 int bublesortDsc () {
 	system("cls");
 	identitas();
+	cout << "Progam Buble Sort DESCENDING" << endl;
 	cout << "Masukan Jumlah Data : "; cin >> n;
 	cout << "=================================" << endl;
 	for (int i = 0; i < n; i++)
@@ -140,18 +170,22 @@ int bublesortDsc () {
 				tukar(j,j-1);
 			}
 
-			tampil();	
+			cout << "Langkah ke " << (i+1) << "" << endl;
+			cout << "=====================" << endl;
+
+			for (int x = 0; x < n; x++) {
+				cout << data[x] << " ";
+			}
+			cout << "\n";
 		}
 
-		
-
-		cout<<endl;
 	}
 
 	cout << "Setelah Di Sorting" << endl;
 	tampil();
 
-	cout << "\n";
+
+	cout <<"\n";
 
 	return 0;
 }
@@ -162,6 +196,9 @@ int selectioSortAsc () {
 
 	system("cls");
 	identitas();
+	cout << "\n";
+	cout << "Progam Selection Sort ASCENDING" << endl;
+	cout << "\n";
 	cout << "Masukan banyak Data : "; cin >> n;
 	cout << "=====================" << endl;
 
@@ -219,6 +256,9 @@ int selectioSortDsc () {
 
 	system("cls");
 	identitas();
+	cout << "\n";
+	cout << "Progam Selection Sort DESCANDING" << endl;
+	cout << "\n";
 	cout << "Masukan banyak Data : "; cin >> n;
 	cout << "=====================" << endl;
 
