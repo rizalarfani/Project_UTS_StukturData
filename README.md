@@ -22,7 +22,7 @@ NOTE : Apabila ada EROR langsung WA ke saya aja
 <p>2.Buka file UTS.cpp dengan Notpad</p>
 <p>3.Copy semua coding yang ada</p>
 <p>4. Lalu paste kan ke dalah file project anda</p>
-<p>5. tambah kan header #include <stdlib.h> </p>
+## tambah kan header ini #include <stdlib.h> di paling atas coding nya##
 
 
 Tanks ForWatching
