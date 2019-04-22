@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -28,12 +29,6 @@ int getOption ()
 
 	cout << "Silahkan pilih menu (1/2) : "; cin >> menu;
 	cin.ignore(1,'\n');
-	if (menu == 3) {
-		cout<<"*=========================================*"<<endl;
-		cout<<"*                TERIMA KASIH             *"<<endl;
-		cout<<"*=========================================*"<<endl;
-		exit;
-	}
 	cout << "\n";
 
 	return menu;
@@ -45,17 +40,17 @@ int asc_dsc() {
 
 	system ("cls");
 	if (cek == 1) {
-		cout << "=====================" << endl;
-		cout << "= Progam Buble Sort =" << endl;
-		cout << "=====================" << endl;
+		cout << "================================" << endl;
+		cout << "=      Progam Buble Sort       =" << endl;
+		cout << "================================" << endl;
 		cout << "\n";
 		cout << "1.ASCENDING (Terkecil ke besar)" << endl;
 		cout << "2.DESCENDING (Terbesar ke kecil)" << endl;
 		cout << "\n";
 	} else if (cek == 2) {
-		cout << "=========================" << endl;
-		cout << "= Progam Selection Sort =" << endl;
-		cout << "=========================" << endl;
+		cout << "================================" << endl;
+		cout << "=    Progam Selection Sort     =" << endl;
+		cout << "================================" << endl;
 		cout << "\n";
 		cout << "1.ASCENDING (Terkecil ke besar)" << endl;
 		cout << "2.DESCENDING (Terbesar ke kecil)" << endl;
@@ -63,6 +58,7 @@ int asc_dsc() {
 	} else {
 		cout << "Maaf yang anda pilih tidak ada" << endl;
 	}
+
 	cout << "\n";
 	cout << "Pilih mana (1/2) : "; cin >> mn;
 	return mn;
@@ -331,7 +327,6 @@ int main()
 				bublesortDsc();
 			} else {
 				cout << "Maaf pilhan anda tidak ada" << endl;
-				cout << asc_dsc();
 			}
 		break;	
 		case 2:
@@ -341,12 +336,10 @@ int main()
 				selectioSortDsc();
 			} else {
 				cout << "Maaf pilhan anda tidak ada" << endl;
-				cout << asc_dsc();
 			}
 		break;
 		case 3:
 			cout << "Terimahkasid Dadah" << endl;
-			exit;
 		break;
 		default :
 			cout << "Yang ada pilih tidak ada" << endl;

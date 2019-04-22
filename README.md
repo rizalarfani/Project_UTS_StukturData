@@ -2,20 +2,21 @@
 
 Silihkan unduh progam Project UTS ini dengan bijak dan sopan......   
 
-!!!!!FREE HTM
+<h3>!!!!!FREE HTM</h3>
 
 
-###  Cara instalasi ###
+<h1>Cara Instalasi</h1>
 
---Unduh project UTS.cpp
---Buka file UTS.cpp dengan Notpad
---Copy semua coding yang ada
---Lalu paste kan ke dalah file project anda
---Kalau sudah Di compail dan RUN
+<p>1.Unduh project UTS.cpp</p>
+<p>2.Buka file UTS.cpp dengan Notpad</p>
+<p>3.Copy semua coding yang ada</p>
+<p>4.Lalu paste kan ke dalah file project anda</p>
+<p>5.Kalau sudah Di compail dan RUN</p>
 
 
 NOTE : Apabila ada EROR langsung WA ke saya aja
 
 
-Tanks ForWatching
+<h2><b>Tanks ForWatching</b></h2>
+
 
