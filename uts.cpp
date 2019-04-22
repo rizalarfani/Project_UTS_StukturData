@@ -230,7 +230,7 @@ int selectioSortAsc () {
 			nilai[i] = tampung;
 		}
 
-		cout << "Langkag ke " << (1+i) << "" << endl;
+		cout << "Langkah ke " << (1+i) << "" << endl;
 		cout << "================" << endl;
 
 		for (int x = 0; x < n; ++x) {
