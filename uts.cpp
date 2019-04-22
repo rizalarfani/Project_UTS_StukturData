@@ -191,7 +191,7 @@ int bublesortDsc () {
 }
 
 int selectioSortAsc () {
-	int nilai[30];
+	int nilai[50];
 	int n,i,j,x,pos,tampung;
 
 	system("cls");
