@@ -24,7 +24,6 @@ int getOption ()
 	cout << "--------------------------------------------" << endl;
 	cout << "=          1.Buble Sort                    =" << endl;
 	cout << "=          2.Selectio sort                 =" << endl;
-	cout << "=          3.Selesai                       ="<< endl;
 	cout << "============================================" << endl;
 
 	cout << "Silahkan pilih menu (1/2) : "; cin >> menu;
@@ -120,14 +119,17 @@ int bublesortAcs () {
 				tukar(j,j-1);	
 			}
 
-			cout << "Langkah ke " << (i+1) << "" << endl;
+			tampil();
+
+			}
+			cout << "Langkah ke " << (i+0) << "" << endl;
 			cout << "==============" << endl;
 
 			for (int x = 0; x < n; x++) {
 				cout << data[x] << " ";
-			}
-			cout << "\n";	
+				
 		}
+		cout << "\n";
 	}
 
 	cout << "Setelah Di Sorting" << endl;
@@ -161,19 +163,22 @@ int bublesortDsc () {
 
 	// Proses Buble sort nya
 	for (int i = 1; i < n; i++) {
-		for (int j = n-1; j >= i; j--) {
-			if (data[j] > data[j-1]) {
+		for (int j = n; j >= i; j--) {
+			if (data[j] >= data[j-1]) {
 				tukar(j,j-1);
 			}
 
-			cout << "Langkah ke " << (i+1) << "" << endl;
-			cout << "=====================" << endl;
+			tampil();
+
+			}
+			cout << "Langkah ke " << (i+0) << "" << endl;
+			cout << "==============" << endl;
 
 			for (int x = 0; x < n; x++) {
 				cout << data[x] << " ";
-			}
-			cout << "\n";
+			
 		}
+		cout << "\n";
 
 	}
 
@@ -337,9 +342,6 @@ int main()
 			} else {
 				cout << "Maaf pilhan anda tidak ada" << endl;
 			}
-		break;
-		case 3:
-			cout << "Terimahkasid Dadah" << endl;
 		break;
 		default :
 			cout << "Yang ada pilih tidak ada" << endl;
