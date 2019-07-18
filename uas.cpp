@@ -5,6 +5,10 @@
 #define MAX 10
 using namespace std;
 
+// #########################
+// Created By : M.Rijal Arfani
+// Blog : www.rizaltutorial.com
+
 // Deklarasinkan struct
 struct profile
 {
