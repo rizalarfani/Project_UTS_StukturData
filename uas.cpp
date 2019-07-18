@@ -1,17 +1,24 @@
 #include <iostream>
+#include <stdio.h>
 #include <conio.h>
+#include <stdlib.h>
 #define MAX 10
 using namespace std;
-
-// #####################
-// Created M.Rijal Arfani
-// www.rizaltutorial.com
 
 // Deklarasinkan struct
 struct profile
 {
 	char nama[10],lg;
 	int nim;
+	string kelas;
+	
+};
+
+//pendeklarasian struct sebuah tree awal
+struct Node{
+      int data;
+      Node *kiri;
+      Node *kanan;
 };
 
 // Deklarasinkan struct
@@ -22,50 +29,35 @@ struct STACK {
 
 float dta;
 
-struct quee {
+struct QUEUE {
 	int head,tail;
 	int data[MAX];
-};
-
-//pendeklarasian struct sebuah tree awal
-struct Node{
-      int data;
-      Node *kiri;
-      Node *kanan;
 };
 
 // struct yang telah dibuat (STACK) dijadikan suatu Tipe data, dimana disebut tipe data abstrak
 struct STACK stack_baru;
 
-struct quee antrian;
+struct QUEUE antrian;
 
 struct profile iden;
 
 // Fungsi prototype
 int main();
 
-// Fungsi untuk pilhan menu progam kami
+// Fungsi untuk pilhan menu program kami
 int menu () {
 	int menu;
 
 	system ("cls");
-	cout << "============================================" << endl;
-	cout << "=       Selamat Datang di progam kami      =" << endl;
-	cout << "=           By rizaltutorial.com           =" << endl;
-	cout << "============================================" << endl;
-
-	cout << "\n";
-
-	cout << "============================================" << endl;
-	cout << "=          Menu Progam Kami!!!             =" << endl;
+	cout << "--------------------------------------------" << endl; 
+	cout << "=          >>Menu Program<<                =" << endl;
 	cout << "--------------------------------------------" << endl;
 	cout << "=          1.Stack                         =" << endl;
 	cout << "=          2.Queue                         =" << endl;
-	cout << "=          3.Tree                          =" << endl;
-	cout << "=          4.Keluar                        =" << endl;
-	cout << "============================================" << endl;
+	cout << "=          3.Binary-Tree                   =" << endl;
+	cout << "--------------------------------------------" << endl;
 
-	cout << "Silahkan pilih menu (1/4) : "; cin >> menu;
+	cout << "Silahkan pilih menu (1/3) : "; cin >> menu;
 	cout << "\n";
 
 	return menu;
@@ -74,20 +66,21 @@ int menu () {
 // Fungsi untuk mengisikan identitas anda
 int Input_identitas () {
 	system("cls");
-	cout << "Masukan identitas anda" << endl;
-	cout << "-----------------------" << endl;
-	cout << "Nama anda : "; cin >> iden.nama;
-	cout << "Nim Anda : "; cin >> iden.nim;
+	cout << "Isi Identitas" << endl;
+	cout << "-------------" << endl;
+	cout << "Nama Anda : "; gets(iden.nama);
+	cout << "Kelas anda : "; cin >> iden.kelas;
+	cout << "Nim anda : "; cin >> iden.nim;
 	return iden.nim;
 }
 
 // Fungsi untuk menampilkan identitas
 void identitas () {
-	cout << "=============================" << endl;
+	cout << "-------------------" << endl; 
 	cout << "= Nama  : " << iden.nama  << endl;
-	cout << "= Kelas : 2 A " << endl;
+	cout << "= Kelas : " << iden.kelas << endl;
 	cout << "= Nim   : " << iden.nim << endl;
-	cout << "=============================" << endl;
+	cout << "-------------------" << endl; 
 
 	cout << "\n";
 }
@@ -118,11 +111,11 @@ void Tambah_Stack () {
 	
 	// Cek apakah stack penuh atau tidak
 	if (Is_Full() == true) {
-		cout << "Maaf Stack Penuh" << endl;
+		cout << "Stack Telah Penuh" << endl;
 	} else {
 		cout << "Tambah Data stack" << endl;
 		cout << "------------------" << endl;
-		cout << "Silahkan isi data Stack : ";cin >> dta;
+		cout << "isi data Stack : ";cin >> dta;
 		stack_baru.top++;
 		stack_baru.data[stack_baru.top] = dta;
 			
@@ -139,17 +132,17 @@ void Ambil_Stack () {
 		stack_baru.top--;
 	}
 }
-
+ 
 // Fungsi untuk menghapus data stack
 void Hapus_stack () {
 	stack_baru.top = -1;
-	cout << "Sekarang Stack Sudah Kosng" << endl;
+	cout << "Sekarang Stack Kosong" << endl;
 }
 
 // Fungsi untuk melihat antrian
 void cetak () {
 	cout << "Isi dari stack anda" << endl;
-	cout << "=====================" << endl;
+	cout << "-------------------" << endl;
 	for (int i = 1; i <= stack_baru.top; i++) {
 		cout << stack_baru.data[i] << " ";
 	}
@@ -162,15 +155,15 @@ int stack () {
 	char lg;
 	system("cls");
 	identitas();
-	cout << "============================================" << endl;
-	cout << "=             Menu stack !!!               =" << endl;
+	cout << "--------------------------------------------" << endl;
+	cout << "=             >>Menu stack<<               =" << endl;
 	cout << "--------------------------------------------" << endl;
 	cout << "=          1.Push (Tambah Antrian)         =" << endl;
 	cout << "=          2.pop  (Ambil Antrian)          =" << endl;
-	cout << "=          3.Cetak (Lihat antrian)         =" << endl;
+	cout << "=          3.Cetak (Lihat Antrian)         =" << endl;
 	cout << "=          4.Bersihkan stack               =" << endl;
 	cout << "=          5.Menu Utama                    =" << endl;
-	cout << "============================================" << endl;
+	cout << "--------------------------------------------" << endl;
 
 	cout << "Silahkan Pilih Menu Stack (1/5) : ";cin >> pilihan;
 	cout << "\n";
@@ -193,10 +186,16 @@ int stack () {
 				main();
 			break;
 			default:
-				cout << "Maaf yang anda pilih tidak ada" << endl;
+				cout << "Pilihan Tidak Tersedia" << endl;
 			break;
 		}
-		cout << "Mau coba lagi (y/t) : ";cin >> lg;
+
+		if (! (cin >> pilihan )){
+			cin.clear();
+			cout << "Harap masukan Nomor (1/5)." << endl;
+		}
+
+		cout << "Mau coba lagi ? (y/t) : ";cin >> lg;
 		cout << "\n";
 		if (lg == 'y' | lg == 'Y') {
 			stack();
@@ -211,7 +210,7 @@ int stack () {
 	return 0;
 }
 
-// semua fungsi untuk quee
+// semua fungsi untuk queue
 
 void Create(){
    antrian.head=antrian.tail=-1;
@@ -266,13 +265,13 @@ int Dequeue()
 void Clear()
 {
     antrian.head=antrian.tail=-1;
-    cout << "Hapus antrian berhasul" << endl;
+    cout << "Hapus antrian berhasil" << endl;
 }
 
-// Fungsi untuk tapikan antrian
+// Fungsi untuk tampilkan antrian
 void Tampil()
 {
-    // cek dahulu apakah antrian ya Full jika Full kasih pesan antrian Full
+    // cek dahulu apakah antrianya Full jika Full kasih pesan antrian Full
 	if (IsEmpty () == true ) {
 		cout << "Maaf antrian saat ini kosong" << endl;
 	} else {
@@ -283,21 +282,21 @@ void Tampil()
 	} 
 }
 
-int quee () {
+int queue () {
 	int pilihan,n;
 	char lg;
 	// Create();
 	system("cls");
 	identitas();
-	cout << "============================================" << endl;
-	cout << "=             Menu QUEE !!!               =" << endl;
 	cout << "--------------------------------------------" << endl;
-	cout << "=          1.Enquee (Tambah Antrian)       =" << endl;
+	cout << "=             >>Menu Queue<<               =" << endl;
+	cout << "--------------------------------------------" << endl;
+	cout << "=          1.Enqueue (Tambah Antrian)      =" << endl;
 	cout << "=          2.Dequeue (Ambil Antrian)       =" << endl;
 	cout << "=          3.Cetak (Lihat antrian)         =" << endl;
 	cout << "=          4.Bersihkan stack               =" << endl;
 	cout << "=          5.Menu Utama                    =" << endl;
-	cout << "============================================" << endl;
+	cout << "--------------------------------------------" << endl;
 
 	cout << "Silahkan Pilih Menu Stack (1/5) : ";cin >> pilihan;
 	cout << "\n";
@@ -305,7 +304,7 @@ int quee () {
 	while (pilihan != 6) {
 		switch (pilihan) {
 			case 1:
-				cout << "Silihkan isi data : ";cin >> n;
+				cout << "Silahkan isi data : ";cin >> n;
                 Enquee(n);
 			break;
 			case 2:
@@ -321,16 +320,21 @@ int quee () {
 				main();
 			break;
 			default :
-				cout << "Maaf pilihan tidak ada" << endl;
+				cout << "Maaf pilihan tidak tersedia" << endl;
 			break;
 		}
 
 		cout << "\n";
+
+		if (! (cin >> pilihan )){
+			cin.clear();
+			cout << "Harap masukan Nomor (1/5)." << endl;
+		}
 		
-		cout << "Mau coba lagi (y/t) : ";cin >> lg;
+		cout << "Mau coba lagi ? (y/t) : ";cin >> lg;
 		cout << "\n";
 		if (lg == 'y' | lg == 'Y') {
-			quee();
+			queue();
 		} else if (lg == 't' | lg == 'T') {
 			cout<<"*=========================================*"<<endl;
 			cout<<"*                TERIMA KASIH             *"<<endl;
@@ -343,57 +347,55 @@ int quee () {
 } 
 
 
-// Semua fungsi untuk Binary-Tree
-//fungsi untuk menambahkan node baru
+// Fungsi semua untuk Binary Tree
 void tambah(Node **root, int databaru)
 {
-	//jika root masih kosong
-	if((*root) == NULL)
-	{
-	    //pembuatan node baru
-	    Node *baru;
-	    //pengalokasian memori dari node yang telah dibuat
-	    baru = new Node;
-	    //inisialisasi awal node yang baru dibuat
-	    baru->data = databaru;
-	    baru->kiri = NULL;
-	    baru->kanan = NULL;
-	    (*root) = baru;
-	    (*root)->kiri = NULL;
-	    (*root)->kanan = NULL;
-	    cout << "Data bertambah" << endl;
-	}
-	//jika data yang akan dimasukkan lebih kecil daripada elemen root, maka akan diletakkan di node sebelah kiri.
-	  else if(databaru<(*root)->data)
-	        tambah(&(*root)->kiri, databaru);
-	//jika data yang akan dimasukkan lebih besar daripada elemen root, maka akan diletakkan di node sebelah kanan
-	  else if(databaru>(*root)->data)
-	        tambah(&(*root)->kanan, databaru);
-	//jika saat dicek data yang akan dimasukkan memiliki nilai yang sama dengan data pada root
-	  else if(databaru == (*root)->data)
-	        cout << "Data sudah ada" << endl;
+      //jika root masih kosong
+      if((*root) == NULL)
+      {
+            //pembuatan node baru
+            Node *baru;
+            //pengalokasian memori dari node yang telah dibuat
+            baru = new Node;
+            //inisialisasi awal node yang baru dibuat
+            baru->data = databaru;
+            baru->kiri = NULL;
+            baru->kanan = NULL;
+            (*root) = baru;
+            (*root)->kiri = NULL;
+            (*root)->kanan = NULL;
+            printf("Data bertambah!");
+      }
+     //jika data yang akan dimasukkan lebih kecil daripada elemen root, maka akan diletakkan di node sebelah kiri.
+      else if(databaru<(*root)->data)
+            tambah(&(*root)->kiri, databaru);
+     //jika data yang akan dimasukkan lebih besar daripada elemen root, maka akan diletakkan di node sebelah kanan
+      else if(databaru>(*root)->data)
+            tambah(&(*root)->kanan, databaru);
+     //jika saat dicek data yang akan dimasukkan memiliki nilai yang sama dengan data pada root
+      else if(databaru == (*root)->data)
+            printf("Data sudah ada!");
 }
 
 
 //fungsi yang digunakan untuk mencetak tree secara preOrder
 void preOrder(Node *root)
 {
-    if(root != NULL){
-        // printf("%d ", root->data);
-  		cout << root->data << endl;;
-        preOrder(root->kiri);
-        preOrder(root->kanan);
-    }
+      if(root != NULL){
+            printf("%d ", root->data);
+            preOrder(root->kiri);
+            preOrder(root->kanan);
+      }
 }
 
 //fungsi yang digunakan untuk mencetak tree secara inOrder
 void inOrder(Node *root)
 {
-    if(root != NULL){
-        inOrder(root->kiri);
-        printf("%d ", root->data);
-        inOrder(root->kanan);
-    }
+      if(root != NULL){
+            inOrder(root->kiri);
+            printf("%d ", root->data);
+            inOrder(root->kanan);
+      }
 }
 
 //fungsi yang digunakan untuk mencetak tree secara postOrder
@@ -406,90 +408,74 @@ void postOrder(Node *root)
       }
 }
 
-int tree () {
-	char lg;
-	system("cls");
+int binary_tree () {
 	//deklarasikan variabel
-  	int pil, data;// c;
-  	Node *pohon; //*t;
-  	pohon = NULL; //inisialisasi node pohon
-	identitas();
-	cout << "============================================" << endl;
-	cout << "=             Menu binary_search !!!       =" << endl;
-	cout << "--------------------------------------------" << endl;
-	cout << "=          1.Tambah                        =" << endl;
-	cout << "=          2.Lihat Pre-Order               =" << endl;
-	cout << "=          3.Lihat In-Order                =" << endl;
-	cout << "=          4.Lihat Post-Order              =" << endl;
-	cout << "=          5.Menu Utama                    =" << endl;
-	cout << "============================================" << endl;
-
-	cout << "Silahkan pilih menu (1/5) : ";cin >> pil;
-
-	while (pil != 5){
-		switch(pil) {
-			// Jika pilihan 1
-			case 1:
-				 printf("\nINPUT : ");
-	              printf("\n-------");
-	              printf("\nData baru : ");
-	              scanf("%d", &data);
-	              //panggil fungsi untuk menambah node yang berisi data pada tree
-	              tambah(&pohon, data);
-			break;
-			// Jika pilihan 2
-			case 2:
-				printf("\nOUTPUT PRE ORDER : ");
+      int pil, data;// c;
+      Node *pohon; //*t;
+      pohon = NULL; //inisialisasi node pohon
+      //perulangan do-while
+      do
+      {
+            system("cls"); //bersihkan layar
+            printf("\t#PROGRAM TREE C++#");
+            printf("\n\t==================");
+            printf("\nMENU");
+            printf("\n----\n");
+            printf("1. Tambah\n");
+            printf("2. Lihat pre-order\n");
+            printf("3. Lihat in-order\n");
+            printf("4. Lihat post-order\n");
+            printf("5. Exit\n");
+            printf("Pilihan : ");
+            scanf("%d", &pil);
+            switch(pil)
+            {
+            //jika pil bernilai 1
+            case 1 :
+                  printf("\nINPUT : ");
+                  printf("\n-------");
+                  printf("\nData baru : ");
+                  scanf("%d", &data);
+                  //panggil fungsi untuk menambah node yang berisi data pada tree
+                  tambah(&pohon, data);
+                  break;
+                 
+            //jika pil bernilai 2
+            case 2 :
+                  printf("\nOUTPUT PRE ORDER : ");
                   printf("\n------------------\n");
-                  if(pohon!=NULL) {
+                  if(pohon!=NULL)
                        //panggil fungsi untuk mencetak data secara preOrder
                         preOrder(pohon);
-                  	} else {
+                  else
                         printf("Masih kosong!");
-                  	}
-			break;
-			case 3:
-				printf("\nOUTPUT IN ORDER : ");
+                  break;
+                 
+            //jika pil bernilai 3
+            case 3 :
+                  printf("\nOUTPUT IN ORDER : ");
                   printf("\n------------------\n");
-                  if(pohon!=NULL) {
+                  if(pohon!=NULL)
                        //panggil fungsi untuk mencetak data secara inOrder
                         inOrder(pohon);
-                  	} else {
+                  else
                         printf("Masih kosong!");
-                  	}
-			break;
-			case 4:
-				printf("\nOUTPUT POST ORDER : ");
+                  break;
+           
+            //jika pil bernilai 4
+            case 4 :
+                  printf("\nOUTPUT POST ORDER : ");
                   printf("\n------------------\n");
-                  if(pohon!=NULL) {
+                  if(pohon!=NULL)
                        //panggil fungsi untuk mencetak data secara postOrder
                         postOrder(pohon);
-                  	} else {
+                  else
                         printf("Masih kosong!");
-                  	}
-			break;
-			case 5:
-				main();
-			break;
-			default :
-				cout << "Maaf Pilihan menu tudak ada" << endl;
-			break;
-		}
-
-		cout << "\n";
-		cout << "Mau coba lagi?? (y/t) : "; cin >> lg;
-		cout << "\n";
-		if (lg == 'y' | lg == 'Y') {
-			tree();
-		} else if (lg == 'n' | lg == 'N') {
-			cout<<"*=========================================*"<<endl;
-			cout<<"*                TERIMA KASIH             *"<<endl;
-			cout<<"*=========================================*"<<endl;
-			break;
-		}
-	}
-
-	return 0;
+                  break;
+            }
+            _getch();
+      }while(pil != 5); //akan diulang jika input tidak samadengan 5
+      return EXIT_FAILURE;
 }
 
 
@@ -503,26 +489,25 @@ int main()
 	int pilih = menu();		
 	char lg;
 	
-	while(pilih != 4) {
+	while(pilih != 3) {
 		switch(pilih) {
 			case 1:
 				stack();
 			break;
 			case 2:
-				quee();
+				queue();
 			break;
 			case 3:
-				tree();
-			break;
-			case 4:
-				cout<<"*=========================================*"<<endl;
-				cout<<"*                TERIMA KASIH             *"<<endl;
-				cout<<"*=========================================*"<<endl;
-			break;
+				binary_tree();
 			break;
 			default:
 				cout << "Maaf yang anda pilih tidak ada" << endl;
 			break;
+		}
+
+		if (! (cin >> pilih )){
+			cin.clear();
+			cout << "Harap masukan Nomor (1/5)." << endl;
 		}
 
 		cout << "Mau coba lagi (y/t) : "; cin >> lg;
