@@ -4,8 +4,9 @@
 
 using namespace std;
 
-int data[50],data2[50];
-int n;
+int data[25],data2[25];
+int n,nim;
+char nama[10];
 
 int getOption () 
 {
@@ -63,11 +64,21 @@ int asc_dsc() {
 	return mn;
 }
 
+void InputIdentitas () {
+	system("cls");
+	cout << "Masukan Data Identitas" << endl;
+	cout << "=========================" << endl;
+	cout << "Nama Anda : "; cin >> nama;
+	cout << "\n";
+	cout << "Nim Anda : "; cin >> nim;
+
+}
+
 void identitas () {
 	cout << "============================" << endl;
-	cout << "= Nama  : M.Rijal Arfani   =" << endl;
+	cout << "= Nama  : " << nama <<"    =" << endl;
 	cout << "= Kelas : 2 A              =" << endl;
-	cout << "= Nim   : 18040004         =" << endl;
+	cout << "= Nim   : " << nim <<"     =" << endl;
 	cout << "============================" << endl;
 
 	cout << "\n";
@@ -118,9 +129,7 @@ int bublesortAcs () {
 			if (data[j] < data[j-1]) {
 				tukar(j,j-1);	
 			}
-
-			tampil();
-
+				tampil();
 			}
 			cout << "Langkah ke " << (i+0) << "" << endl;
 			cout << "==============" << endl;
@@ -164,7 +173,7 @@ int bublesortDsc () {
 	// Proses Buble sort nya
 	for (int i = 1; i < n; i++) {
 		for (int j = n; j >= i; j--) {
-			if (data[j] >= data[j-1]) {
+			if (data[j] > data[j-1]) {
 				tukar(j,j-1);
 			}
 
@@ -319,9 +328,12 @@ int selectioSortDsc () {
 
 int main()
 {
+	
+	InputIdentitas();
 	int pilihan = getOption();
 	int plh = asc_dsc();
 	char lg;
+	
 
 	while(pilihan != 3) {
 		switch(pilihan) {
