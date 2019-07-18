@@ -190,11 +190,6 @@ int stack () {
 			break;
 		}
 
-		if (! (cin >> pilihan )){
-			cin.clear();
-			cout << "Harap masukan Nomor (1/5)." << endl;
-		}
-
 		cout << "Mau coba lagi ? (y/t) : ";cin >> lg;
 		cout << "\n";
 		if (lg == 'y' | lg == 'Y') {
@@ -325,11 +320,6 @@ int queue () {
 		}
 
 		cout << "\n";
-
-		if (! (cin >> pilihan )){
-			cin.clear();
-			cout << "Harap masukan Nomor (1/5)." << endl;
-		}
 		
 		cout << "Mau coba lagi ? (y/t) : ";cin >> lg;
 		cout << "\n";
@@ -489,7 +479,7 @@ int main()
 	int pilih = menu();		
 	char lg;
 	
-	while(pilih != 3) {
+	while(pilih != 4) {
 		switch(pilih) {
 			case 1:
 				stack();
